@@ -1,0 +1,10 @@
+Done:
+Add Note
+Display Note
+Edit Note
+Remove Note
+Search Notes
+Sort Notes by Date*
+
+*Issues:
+Fix sorting issue, seems to delete new items instead of sorting them
