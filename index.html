@@ -10,12 +10,20 @@
     <script src="https://kit.fontawesome.com/ef55d7b33c.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Settings Popup Menu -->
+    <div id="settingsPopup" class="p-3 rounded d-none">
+        <!-- Rounded switch -->
+        <label id="switchLabel" class="switch">
+            <input id="lightsToggle" type="checkbox">
+            <span class="slider round"><span class="left-margin-custom">Lights</span></span>
+        </label>
+    </div>
     <!-- General Page Container -->
-    <div class="container-fluid d-flex flex-column">
+    <div id="page-container" class="container-fluid d-flex flex-column">
         <!-- Navigation Bar -->
-        <div class="row d-flex align-items-center justify-content-between bg-black no-select">
+        <div id="navBar" class="row d-flex align-items-center justify-content-between bg-black no-select">
             <!-- Logo Column -->
-            <div class="col-auto d-flex align-items-center justify-content-center bg-custom2">
+            <div id="logoColumn" class="col-auto d-flex align-items-center justify-content-center bg-custom2">
                 <div>
                     <h2>SIMPLE NOTES</h2>
                 </div>
@@ -23,20 +31,21 @@
                     <h6>by JLUCA</h6>
                 </div>
             </div>
-            <!-- Button/User Icon Column -->
+            <!-- Buttons Column -->
             <div class="col-auto d-flex align-items-center justify-content-end my-3">
-                <div><i class="fa-solid fa-gear fa-xl fa-fw button-hover-effect"></i></div>
+                <div><i id="settingsButton" class="fa-solid fa-gear fa-xl fa-fw button-hover-effect"></i></div>
                 <div><i class="fa-solid fa-circle-question fa-xl fa-fw button-hover-effect"></i></div>
             </div>
+            
         </div>
         <!-- End Navigation Bar -->
 
         <!-- 2 Columns Row -->
-        <div class="row d-flex p-1 mt-1">
+        <div id="twoColumnsRow" class="row d-flex p-1 mt-1">
 
             <!-- Column 1 (List of Notes) -->
             <div id="noteListColumn" class="d-flex flex-column col-6 no-select">
-                <div class="container d-flex flex-column p-3 bg-black rounded">
+                <div id="noteListColumnChild" class="container d-flex flex-column p-3 bg-black rounded">
                     <!-- Mini Nav Bar -->
                     <div class="row d-flex align-items-center justify-content-between mt-1 mb-4 p-2 rounded">
                         <!-- Search Column -->
@@ -48,10 +57,10 @@
                         <!-- Sort Dropdown -->
                         <div class="col-auto d-flex align-items-center justify-content-start">
                             <div class="dropdown">
-                                <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown"></button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Newest First</a></li>
-                                    <li><a class="dropdown-item" href="#">Oldest First</a></li>
+                                <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">Sort</button>
+                                <ul class="dropdown-menu rounded">
+                                    <li class="dropdown-item text-white">Newest First</li>
+                                    <li class="dropdown-item text-white">Oldest First</li>
                                 </ul>
                                 </div>
                         </div>
@@ -189,9 +198,9 @@
 
             <!-- Column 2 (Note Viewport) -->
             <div id="viewportColumn" class="d-flex flex-column col-6">
-                <div class="container d-flex flex-column justify-content-end rounded p-4 bg-black flex-grow-1">
+                <div id="viewportColumnChild" class="container d-flex flex-column justify-content-end rounded p-4 bg-black flex-grow-1">
                     <!-- Viewport Title and Date Box -->
-                    <div class="row bg-custom1 p-2 border d-flex align-items-center">
+                    <div id="viewportHeader" class="row bg-custom1 p-2 border d-flex align-items-center">
                         <div class="col-9">
                             <h5 id="noteViewportTitle" contenteditable="true"></h5>
                         </div>

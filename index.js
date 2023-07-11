@@ -193,3 +193,81 @@ dropdownItems.forEach(item => item.addEventListener('click', sortNoteListItems))
 noteListItems.forEach(item => {
     item.addEventListener('click', onNoteItemClick);
 });
+
+
+// Function for settings menu popup to display
+const settingsButton = document.querySelector('#settingsButton');
+const settingsPopup = document.querySelector('#settingsPopup');
+const twoColumnsRow = document.querySelector('#twoColumnsRow');
+settingsButton.addEventListener('click', () => {
+    console.log(settingsButton);
+    if (settingsPopup.classList.contains('d-none')){
+        settingsPopup.classList.remove('d-none');
+        twoColumnsRow.classList.add('filter');
+    } else {
+        settingsPopup.classList.add('d-none');
+        twoColumnsRow.classList.remove('filter');
+    }
+});
+
+// Function to allow exiting settings menu by clicking outside the menu
+const switchLabel = document.querySelector('#switchLabel');
+document.addEventListener('click', (event) => {
+    const isClickedInsidePopup = settingsPopup.contains(event.target);
+    const isClickingSettings = settingsButton.contains(event.target);
+    if (isClickedInsidePopup || settingsButton == event.target ){
+    } else {
+        settingsPopup.classList.add('d-none');
+        twoColumnsRow.classList.remove('filter');
+    }
+});
+
+// Function for lights toggle switch
+const lightsToggle = document.querySelector('#lightsToggle');
+const generalPageContainer = document.querySelector('#page-container');
+const noteListColumnChild = document.querySelector('#noteListColumnChild');
+const viewportColumnChild = document.querySelector('#viewportColumnChild');
+const navBar = document.querySelector('#navBar');
+const viewportHeader = document.querySelector('#viewportHeader');
+const logoColumn = document.querySelector('#logoColumn');
+let toggleCount = 0;
+lightsToggle.addEventListener('click', () => {
+    toggleCount++
+    if (toggleCount % 2 === 0){
+        generalPageContainer.classList.remove('bg-white');
+
+        noteListColumnChild.classList.add('bg-black');
+        noteListColumnChild.classList.remove('bg-custom4');
+
+        viewportColumnChild.classList.add('bg-black');
+        viewportColumnChild.classList.remove('bg-custom4');
+
+        navBar.classList.add('bg-black');
+        navBar.classList.remove('bg-primary');
+
+        viewportHeader.classList.add('bg-custom1');
+        viewportHeader.classList.remove('bg-custom2');
+
+        logoColumn.classList.add('bg-custom2');
+        logoColumn.classList.remove('bg-custom3');
+    } else {
+        generalPageContainer.classList.add('bg-white');
+
+        noteListColumnChild.classList.remove('bg-black');
+        noteListColumnChild.classList.add('bg-custom4');
+
+        viewportColumnChild.classList.remove('bg-black');
+        viewportColumnChild.classList.add('bg-custom4');
+
+        navBar.classList.remove('bg-black');
+        navBar.classList.add('bg-primary');
+
+        viewportHeader.classList.remove('bg-custom1');
+        viewportHeader.classList.add('bg-custom2');
+
+        logoColumn.classList.remove('bg-custom2');
+        logoColumn.classList.add('bg-custom3');
+    }
+});
+
+
