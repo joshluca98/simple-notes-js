@@ -4,7 +4,8 @@ Display Note
 Edit Note
 Remove Note
 Search Notes
-Sort Notes by Date*
+Sort Notes by Date
 
-*Issues:
-Fix sorting issue, seems to delete new items instead of sorting them
+To Do:
+status updates function?
+ex use case: when user edits a note, status update will appear that says 'note updated successfully'

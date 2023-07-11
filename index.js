@@ -3,7 +3,8 @@ const noteListItems = noteList.querySelectorAll('.noteItem')
 const searchBar = document.querySelector('#noteListSearchInput')
 const dropdownItems = document.querySelectorAll('.dropdown-item');
 const saveButton = document.querySelector('#saveButton');
-const updateButton = document.querySelector('.updateButton');
+const updateButton = document.querySelector('#updateButton');
+const cancelButton = document.querySelector('#cancelButton');
 const viewportColumn = document.querySelector('#viewportColumn');
 
 var currentdate = new Date();
@@ -96,6 +97,21 @@ function updateNote() {
 updateButton.addEventListener('click', updateNote);
 
 
+// Function to revert edits upon cancel button click
+cancelButton.addEventListener('click', () => {
+    const selectedNote = document.querySelector('.noteItem.border');
+    if (selectedNote) {
+      const noteViewportTitle = document.querySelector('#noteViewportTitle');
+      const noteViewportBody = document.querySelector('#noteViewportBody');
+      const noteTitle = selectedNote.querySelector('.itemTitle');
+      const noteBody = selectedNote.querySelector('.itemBody');
+      // Revert the note viewport content to the original note's content
+      noteViewportTitle.innerHTML = noteTitle.innerHTML;
+      noteViewportBody.innerHTML = noteBody.innerHTML;
+    }
+});
+
+
 // Add event listener for bookmarking a note
 noteList.addEventListener('click', e => {
     const target = e.target;
@@ -120,13 +136,15 @@ if (target.classList.contains('trash')) {
 });
 
 
-// Add event listener to enable and disable the update button as necessary
+// Add event listener to enable and disable the update/cancel button as necessary
 document.addEventListener('click', e => {
   const isClickedInsideViewport = viewportColumn.contains(e.target);
   if (!isClickedInsideViewport) {
     updateButton.disabled = true;
+    cancelButton.disabled = true;
   } else {
     updateButton.disabled = false;
+    cancelButton.disabled = false;
   }
 });
 
@@ -150,6 +168,7 @@ searchBar.addEventListener('input', () => {
 
 // Sort note by date functionality
 function sortNoteListItems() {
+    const noteListItems = noteList.querySelectorAll('.noteItem')
     const sortedItems = Array.from(noteListItems);
     console.log(sortedItems.length);
   

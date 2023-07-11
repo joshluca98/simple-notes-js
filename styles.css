@@ -11,7 +11,7 @@ body {
     background-color: #222;
 }
 
-/* Mail Items (Column 2) */
+/* Note Items */
 .note-items-container {
     height: 70vh;
 }
@@ -76,7 +76,7 @@ button.btn:hover:not(.no-bg) {
 i {
     margin-right: 10px;
 }
-i:hover{
+i:hover:not(.composeButtonFA){
     transform: scale(120%);
 }
 
@@ -108,11 +108,33 @@ textarea {
     color: yellow;
 }
 
-.noteItem {
-    
-}
-
 .itemBody {
     max-height: 3em;
     overflow: auto;
+}
+
+.red {
+    border: 2px solid red;
+}
+
+.blue {
+    border: 2px solid blue;
+}
+
+.green {
+    border: 2px solid green;
+}
+
+#cancelButton,
+#updateButton {
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.fa-x,
+.fa-check {
+    margin-left: 26px;
+
 }
