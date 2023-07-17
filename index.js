@@ -96,7 +96,6 @@ function updateNote() {
 }
 updateButton.addEventListener('click', updateNote);
 
-
 // Function to revert edits upon cancel button click
 cancelButton.addEventListener('click', () => {
     const selectedNote = document.querySelector('.noteItem.border');
@@ -152,13 +151,15 @@ document.addEventListener('click', e => {
 // Add event listener to enable search functionality upon user text input
 searchBar.addEventListener('input', () => {
     const noteListItems = noteList.querySelectorAll('.noteItem')
-    const searchTerm = searchBar.value.toLowerCase();
+    const searchTerm = searchBar.value.toLowerCase().trim();
 
     noteListItems.forEach((item, index) => {
         if (searchTerm && item.textContent.toLowerCase().includes(searchTerm)){
-            item.style.color = 'green';
+            item.classList.remove('d-none');
+            item.classList.add('d-flex');
         } else if (searchTerm && !(item.textContent.toLowerCase().includes(searchTerm))) {
-            item.style.color = 'red';
+            item.classList.remove('d-flex');
+            item.classList.add('d-none');
         } else {
             item.style.color = 'white';
         } 
@@ -177,12 +178,10 @@ function sortNoteListItems() {
     } else if (this.textContent === 'Oldest First') {
       sortedItems.sort((a, b) => new Date(a.querySelector('.itemDate').textContent) - new Date(b.querySelector('.itemDate').textContent));
     }
-  
     // Remove all existing note items from the list
     while (noteList.firstChild) {
       noteList.firstChild.remove();
     }
-
     // Append the sorted note items to the list
     sortedItems.forEach(item => noteList.appendChild(item));
 }
@@ -221,6 +220,7 @@ document.addEventListener('click', (event) => {
         twoColumnsRow.classList.remove('filter');
     }
 });
+
 
 // Function for lights toggle switch
 const lightsToggle = document.querySelector('#lightsToggle');

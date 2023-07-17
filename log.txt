@@ -5,7 +5,12 @@ Edit Note
 Remove Note
 Search Notes
 Sort Notes by Date
+Settings Menu Popup
 
 To Do:
 status updates function?
 ex use case: when user edits a note, status update will appear that says 'note updated successfully'
+
+make the buttons bounce when pushed
+
+change date format to string? (use udemy lesson: 1.15)
