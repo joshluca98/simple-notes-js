@@ -1,7 +1,7 @@
 # simple-notes-js-luca
 Module 2 JS Project for Bay Valley Tech
 
-	A simple notes app that runs in the browser. Built using HTML, CSS, and JavaScript.
+A simple notes app that runs in the browser. Built using HTML, CSS, and JavaScript.
 
 Functionality:
 <ul>
