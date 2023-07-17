@@ -161,7 +161,8 @@ searchBar.addEventListener('input', () => {
             item.classList.remove('d-flex');
             item.classList.add('d-none');
         } else {
-            item.style.color = 'white';
+            item.classList.remove('d-none');
+            item.classList.add('d-flex');
         } 
     });
 })
