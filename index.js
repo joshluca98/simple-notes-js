@@ -7,8 +7,8 @@ const updateButton = document.querySelector('#updateButton');
 const cancelButton = document.querySelector('#cancelButton');
 const viewportColumn = document.querySelector('#viewportColumn');
 
-var currentdate = new Date();
-var newNoteDate = (currentdate.getMonth()+1) + "/" + currentdate.getDate() + "/" + currentdate.getFullYear()
+const currentdate = new Date();
+const newNoteDate = (currentdate.getMonth()+1) + "/" + currentdate.getDate() + "/" + currentdate.getFullYear()
 
 // Save new note to memory with all proper event listeners attached
 function onCreateNote(e){
