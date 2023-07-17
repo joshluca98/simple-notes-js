@@ -172,7 +172,6 @@ searchBar.addEventListener('input', () => {
 function sortNoteListItems() {
     const noteListItems = noteList.querySelectorAll('.noteItem')
     const sortedItems = Array.from(noteListItems);
-    console.log(sortedItems.length);
   
     if (this.textContent === 'Newest First') {
       sortedItems.sort((a, b) => new Date(b.querySelector('.itemDate').textContent) - new Date(a.querySelector('.itemDate').textContent));
@@ -200,7 +199,6 @@ const settingsButton = document.querySelector('#settingsButton');
 const settingsPopup = document.querySelector('#settingsPopup');
 const twoColumnsRow = document.querySelector('#twoColumnsRow');
 settingsButton.addEventListener('click', () => {
-    console.log(settingsButton);
     if (settingsPopup.classList.contains('d-none')){
         settingsPopup.classList.remove('d-none');
         twoColumnsRow.classList.add('filter');
